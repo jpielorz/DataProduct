@@ -5,6 +5,7 @@
 
 library(shiny)
 library(lubridate)
+library(markdown)
 
 # This data is available throughout the application session for each user
 

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Airline On-Time Statistics</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Airline On-Time Statistics">
+  <meta name="author" content="jpielorz">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Airline On-Time Statistics</h1>
+    <h2>Analysis of US Airline Delays in September 2001</h2>
+    <p>jpielorz<br/>Slidify Presentation for &quot;Developing Data Products&quot;</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Scope and References</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Airline on-time data are reported in 2014 to the U.S. Department of Transportation (DOT), Bureau of Transportation             Statistics (BTS) by the 14 U.S. air carriers that have at least 1 percent of total domestic scheduled-service passenger revenues. </p></li>
+<li><p>The data cover nonstop scheduled-service flights between points within the United States (including territories). </p></li>
+<li><p>Dataset are available since January 1995 up to now and include all departure and arrival statistics (scheduled departure time, actual departure time, scheduled elapse time, departure delay, wheels-off time and taxi-out time) by airport and airline; airborne time, cancellation and diversion by airport and airline.</p></li>
+<li><p>The airline on-time statistics data used for this assignment come originally from <a href="http://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp?pn=1">RITA</a>.</p></li>
+<li><p>Due to the better compression in comparison to the original files, we downloaded the <a href="http://stat-computing.org/dataexpo/2009/2001.csv.bz2">september 2001</a> data from there.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Exploratory Data Analysis</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>For the Shiny application, the analysis is restricted to data from September, 2001 and considers the variables <code>Month</code>, <code>DayofMonth</code>, <code>DepDelay</code> and <code>ArrDelay</code>.</li>
+</ul>
+
+<pre><code class="r">      air_data &lt;- read.csv(&quot;../data//sep2001.csv&quot;, header = TRUE)
+      head(air_data)
+</code></pre>
+
+<pre><code>##         X Month DayofMonth ArrDelay DepDelay
+## 1 4186032     9          5       22       31
+## 2 4186033     9          6       14       19
+## 3 4186034     9          7       43       54
+## 4 4186035     9          8       14       15
+## 5 4186036     9         10        0        4
+## 6 4186037     9         11       NA       NA
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Delay Frequencies September 2001</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">       hist(air_data$DepDelay, xlab=&quot;DepDelay [minutes]&quot;, col = &quot;lightblue&quot;, xlim=c(-100,300), breaks=100)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-2.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Results and Link to App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+<ul>
+<li>Test the Shiny application at <a href="http://jpielorz.shinyapps.io/DataProduct">http://jpielorz.shinyapps.io/DataProduct</a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Scope and References'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Exploratory Data Analysis'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Delay Frequencies September 2001'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Results and Link to App'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
