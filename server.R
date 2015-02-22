@@ -8,14 +8,14 @@ library(lubridate)
 
 # This data is available throughout the application session for each user
 
-sample2001 <- read.csv("sep2001.csv")
+sample2001 <- read.csv("data/sep2001.csv")
 
 # Server side script
 
 shinyServer(function(input, output) {
       
       
-# Transform input into text for caption, header and date
+# Transform input into text for header, number of observations and date
       
       formulaText <- reactive({
             paste("Showing variable ", input$variable)
@@ -25,16 +25,16 @@ shinyServer(function(input, output) {
       output$caption <- renderText({
             formulaText()
       })
-      
-#      output$odate <- renderPrint({input$date})
 
+      output$numobs <- renderText({
+            paste("The number of observations is", as.character(nrow(data_sliced())))
+      })
+      
       output$odate_range <- renderText({
-            paste("input$date_range is", 
+            paste("The considered date range is", 
                   paste(as.character(input$date_range), collapse = " to ")
             )
       })
-
-      output$ovar <- renderPrint({input$variable})
       
 # Slice dataset according to input of date widget and chosen variable
 
@@ -45,10 +45,7 @@ shinyServer(function(input, output) {
       })
            
 
-      output$numobs <- renderText({
-            paste("number of observations is", as.character(nrow(data_sliced())))
-      })
-
+ 
 # Plot histogram depending on input of variable  
       
       output$myHist <- renderPlot({
