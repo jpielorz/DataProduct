@@ -4,7 +4,7 @@ output: pdf_document
 
 # Summary
 
-Airline on-time data are reported in 2014 to the U.S. Department of Transportation (DOT), Bureau of Transportation Statistics (BTS) by the 14 U.S. air carriers that have at least 1 percent of total domestic scheduled-service passenger revenues. The data cover ** nonstop scheduled-service flights between points within the United States** (including territories) as described in 14 CFR Part 234 of DOT's regulations. Data are available since January 1995. 
+Airline on-time data are reported in 2014 to the U.S. Department of Transportation (DOT), Bureau of Transportation Statistics (BTS) by the 14 U.S. air carriers that have at least 1 percent of total domestic scheduled-service passenger revenues. The data cover **nonstop scheduled-service flights between points within the United States** (including territories) as described in 14 CFR Part 234 of DOT's regulations. Data are available since January 1995. 
 
 # Data
 
