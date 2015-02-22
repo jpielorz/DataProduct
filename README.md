@@ -5,6 +5,6 @@ This programming assignment is part of the course work for the Coursera course "
 
 The aim of this assignment is to create a Shiny application and deploy it on Rstudio's servers. Additionally, it is required to prepare a reproducible pitch presentation about the application with Slidify or Rstudio Presenter:
 
-* The Shiny application is available on shinyapps.io at ...
-* The supporting presentation can be viewed on GitHub at ...
+* The Shiny application is available on shinyapps.io at http://jpielorz.shinyapps.io/DataProduct
+* The supporting presentation can be viewed on Dropbox at https://dl.dropboxusercontent.com/u/27200898/AirlineStats/index.html
 
